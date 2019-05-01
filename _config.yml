@@ -1,10 +1,10 @@
 # Site settings
-title: CYY's Blog
-SEOTitle: CYY的博客 | CYY Blog
-header-img: img/post-bg-desk.jpg
+title: CYY's Deep Learning Lab
+SEOTitle: CYY的深度学习博客 | CYY's Deep Learning Lab
+header-img: img/post-bg-coffee.jpeg
 email: chenyu3yu3@gmail.com
 description: "深度学习炼丹师."
-keyword: "CYY, CYY Blog, CYY的博客, yu3yu3,Machine Learning, Deep Learning,Natural Language Processing,ML,DL,NLP"
+keyword: "CYY, CYY Blog, CYY的博客, yu3yu3, Machine Learning, Deep Learning, Natural Language Processing, ML, DL, NLP"
 url: "http://yu3yu3.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/yu3yu3/yu3yu3.github.io.git" # you code repository
@@ -12,7 +12,7 @@ github_repo: "https://github.com/yu3yu3/yu3yu3.github.io.git" # you code reposit
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "Goals determine what you going to be!"
-sidebar-avatar: /img/avatar_m.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/avatar.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
@@ -78,7 +78,7 @@ ba_track_id: 2b391ff6effdaa08154f62fb8a7c0da6
 
 # Google Analytics
 ga_track_id: 'UA-139132428-1'            # Format: UA-xxxxxx-xx
-ga_domain: yu3yu3.github.io               # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
+ga_domain: auto               # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
 
 
 
