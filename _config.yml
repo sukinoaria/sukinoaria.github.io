@@ -98,4 +98,8 @@ friends: [
         title: "An Ying’s Blog",
         href: "http://amandachin.github.io"
     },
+    {
+        title: "Mu Feng’s Blog",
+        href: "http://blog.mufeng.info"
+    },
 ]
