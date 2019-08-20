@@ -1,10 +1,10 @@
 # Site settings
-title: CYY's Deep Learning Lab
-SEOTitle: CYY的深度学习博客 | CYY's Deep Learning Lab
+title: CYY's Machine Learning Lab
+SEOTitle: CYY的机器学习博客 | CYY's Machine Learning Lab
 header-img: img/post-bg-coffee.jpeg
 email: chenyu3yu3@gmail.com
-description: "深度学习炼丹师."
-keyword: "CYY, CYY Blog, CYY的博客, yu3yu3, Machine Learning, Deep Learning, Natural Language Processing, ML, DL, NLP"
+description: "NULL"
+keyword: "CYY, CYY Blog, CYY的博客, yu3yu3, Machine Learning"
 url: "http://yu3yu3.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/yu3yu3/yu3yu3.github.io.git" # you code repository
