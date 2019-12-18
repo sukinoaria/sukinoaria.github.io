@@ -47,7 +47,7 @@ Weisfeiler-Lehman如下所示：
 
 而对于更为复杂的结构如环己烷($C_6H_{12}$)，无论经过多少轮的WL test迭代，C原子都具有相同的特征表示。
 
-![环己烷分子结构](/static/relationalPooling/CycloHexane-2D.png)
+![环己烷分子结构](/static/relationalPooling/Cyclohexane-2D.png)
 
 可以看出，当WL test的迭代次数过少或者图中存在复杂的环形结构时，WL test并不能获取到足够有效的结点和图的表征。
 
