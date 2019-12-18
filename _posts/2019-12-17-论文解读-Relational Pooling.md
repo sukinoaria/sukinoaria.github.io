@@ -31,23 +31,23 @@ Weisfeiler-Lehman如下所示：
 
 其一次迭代过程如下图所示：
 
-![WL test一次迭代过程](/static/RelationalPooling/WLtest_iteration.png)
+![WL test一次迭代过程](/static/relationalPooling/WLtest_iteration.png)
 
 经过一次迭代后我们得到了新的标签分布：
 
-![WL test一次迭代结果](/static/RelationalPooling/WL_test_distribution.png)
+![WL test一次迭代结果](/static/relationalPooling/WL_test_distribution.png)
 
 事实上，Weisfeiler-Lehman算法在大多数图上会得到一个独一无二的特征集合，这意味着图上的每一个节点都有着独一无二的角色定位（例外在于网格，链式结构等等）。**因此，对于大多数非规则的图结构，得到的特征可以作为图是否同构的判别依据，也就是WL Test，通过统计稳定后label的分布来判定两张图是否同构。**
 
 但在WL test中存在一个问题：在结点聚合其邻居信息的时候只是根据其标签特征，而不考虑其位置或者结点编号信息，其节点表示特征无法区分该结点连接的是同一个结点或者是具有相同特征表示的不同节点。如下图己烷($C_6H_{14}$)的图结构：
 
-![己烷分子结构](/static/RelationalPooling/Hexane-2D.png)
+![己烷分子结构](/static/relationalPooling/Hexane-2D.png)
 
 在第一轮WL test中，处于中间的四个C原子具有相同的表示(它们无法判断具体所处的位置，只知道周围有两个C原子和两个H原子)，当然该情况可以通过多次的WL test过程来改善，处于左右两端的C原子可以学习到自身处于C链的外层，而随着WL test的迭代，这种位置信息可以逐渐传到中间的C原子表示中(如在第二轮迭代中，第二个C原子会聚合第一个碳原子的结点信息，从而具有一定的位置表征能力)。
 
 而对于更为复杂的结构如环己烷($C_6H_{12}$)，无论经过多少轮的WL test迭代，C原子都具有相同的特征表示。
 
-![环己烷分子结构](/static/RelationalPooling/CycloHexane-2D.png)
+![环己烷分子结构](/static/relationalPooling/CycloHexane-2D.png)
 
 可以看出，当WL test的迭代次数过少或者图中存在复杂的环形结构时，WL test并不能获取到足够有效的结点和图的表征。
 
@@ -57,7 +57,7 @@ Weisfeiler-Lehman如下所示：
 
 对于$M=11,R=\{2,3\}$的CSL图如下图。
 
-![CSL图示例](/static/RelationalPooling/CSL_graph.png)
+![CSL图示例](/static/relationalPooling/CSL_graph.png)
 
 面对这样的图结构，WL test完全失去了判断能力。
 
@@ -65,15 +65,15 @@ Weisfeiler-Lehman如下所示：
 
 依其名，对图进行处理的神经网络，对于给定数据集大小为$N$的具有不同大小的图$G_1 ,G_2 ,...,G_N$(每个图可能会有对应的结点/边特征)，都有与之对应的标签/值：$y_1,y_2,...,y_N$，通过学习一个图函数$f(.;\theta)$来对图$G$进行预测对应的标签/值$y$.
 
-![GNN示例](/static/RelationalPooling/gnn_example.png)
+![GNN示例](/static/relationalPooling/gnn_example.png)
 
 然而，由于图所具有的特殊性，其没有严格的序列关系，其结点顺序改变也会引起近邻矩阵$\boldsymbol A$的改变：
 
-![交换结点序列](/static/RelationalPooling/featureless_PI.png)
+![交换结点序列](/static/relationalPooling/featureless_PI.png)
 
 上图为交换了1和2编号的图的近邻矩阵的变化(交换1、2行和1、2列)。而对于具有结点特征的图，还需要对其结点特征矩阵$\boldsymbol X$进行行变换，如下图中对$H_2O$分子的结点编号变换：
 
-![交换节点序列](/static/RelationalPooling/withfeature_PI.png)
+![交换节点序列](/static/relationalPooling/withfeature_PI.png)
 
 如何保证以不同的顺序送入网络中而得到同样的结果？下面引入交换不变性的概念。
 
@@ -108,7 +108,7 @@ $$
 
 核心思想：为WL-GNN模型中的结点添加唯一的ID表示，进而使模型能学习到相对位置信息：
 
-![relational pooling](/static/RelationalPooling/unique_id_CSL.png)
+![relational pooling](/static/relationalPooling/unique_id_CSL.png)
 
 然而，添加了ID表示却破坏了模型的交换不变性，当对ID序列进行变换送入模型中时不能得到一致的结果。为确保对交换不变性的保证，本文使用了一个很朴素的思想：**枚举所有可能的交换序列结果，并求其平均来作为最终的输出**：
 $$
@@ -127,7 +127,7 @@ RPGNN = \stackrel{=}{f}(\boldsymbol A,\boldsymbol X)=\frac{1}{n!}\sum_{n}GNN(\bo
 $$
 其中$\boldsymbol I_{\pi}$为交换序列的one-hot编码。其计算过程示例如下：
 
-![RP GNN](/static/RelationalPooling/RP_GNN_example.png)
+![RP GNN](/static/relationalPooling/RP_GNN_example.png)
 
 在文中也对RP-GNN的表征能力进行了证明，具体可见论文附录，这里不再详谈。
 
@@ -137,13 +137,13 @@ $$
 
 ​	不计算所有的交换序列结果，通过对所有的交换序列方式($n!$种)进行均匀采样来得到交换序列，然后进行梯度下降优化。
 
-![pi-sgd](/static/RelationalPooling/pi_sgd_example.png)
+![pi-sgd](/static/relationalPooling/pi_sgd_example.png)
 
 （2）$K-ary$子图
 
 ​	对具有$n$个结点的图，只取其k个结点作为子图，可以结合$\pi-SGD$方法进行模型训练。如图，对一次排序$\pi(1,2,3,4,5) = (3,4,1,2,5)$，取$k=3$的子图。
 
-![k-ary](/static/RelationalPooling/k-ary-example.png)
+![k-ary](/static/relationalPooling/k-ary-example.png)
 
 ### 4   **实验**
 
@@ -155,17 +155,17 @@ $$
 
 实验结果如下，对于所有的图，GIN都学到了同样的表示。
 
-![exp1](/static/RelationalPooling/experiment1_result.png)
+![exp1](/static/relationalPooling/experiment1_result.png)
 
 #### 4.2 实验二 分子结构预测
 
 数据集介绍：
 
-![exp2_data](/static/RelationalPooling/experiment2_datasets.png)
+![exp2_data](/static/relationalPooling/experiment2_datasets.png)
 
 实验结果：
 
-![exp2 result](/static/RelationalPooling/experiment2_result.png)
+![exp2 result](/static/relationalPooling/experiment2_result.png)
 
 ### 5   **总结**
 
