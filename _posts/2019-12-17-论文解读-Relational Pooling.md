@@ -78,9 +78,13 @@ Weisfeiler-Lehman如下所示：
 如何保证以不同的顺序送入网络中而得到同样的结果？下面引入交换不变性的概念。
 
 *定义* **交换不变性[Permutation Invariance]**：如果函数$f$对图满足
+
+
 $$
 f(\boldsymbol A,\boldsymbol X) = f(\boldsymbol A_{\pi,\pi},\boldsymbol X_\pi)
 $$
+
+
 则称函数$f$满足交换不变性。
 
 而图神经网络也是在保证交换不变性的原则上将深度学习手段引入图领域，经典的WL-GNN模型遵从以下步骤：
@@ -111,9 +115,13 @@ $$
 ![relational pooling](/static/relationalPooling/unique_id_CSL.png)
 
 然而，添加了ID表示却破坏了模型的交换不变性，当对ID序列进行变换送入模型中时不能得到一致的结果。为确保对交换不变性的保证，本文使用了一个很朴素的思想：**枚举所有可能的交换序列结果，并求其平均来作为最终的输出**：
+
+
 $$
 \stackrel{=}{f}(\boldsymbol A,\boldsymbol X)=\frac{1}{n!}\sum_{n}\stackrel{\rightarrow}{f}(\boldsymbol A_{\pi,\pi},\boldsymbol X_{\pi})
 $$
+
+
 其中$\stackrel{=}{.}$为满足交换不变性，而$\stackrel{\rightarrow}{.}$代表对交换敏感。通过这种方法，可以把CNN、RNN等对交换敏感的基础模型应用到图领域。
 
 在RP-GNN模型中定义$\stackrel{\rightarrow}{f}$为：
@@ -122,9 +130,13 @@ $$
 2. 将上一步结果送入任意GNN模型中。
 
 形式化上，可以得到RP-GNN的最终结构：
+
+
 $$
 RPGNN = \stackrel{=}{f}(\boldsymbol A,\boldsymbol X)=\frac{1}{n!}\sum_{n}GNN(\boldsymbol A,CONCAT(\boldsymbol X,\boldsymbol I_{\pi})
 $$
+
+
 其中$\boldsymbol I_{\pi}$为交换序列的one-hot编码。其计算过程示例如下：
 
 ![RP GNN](/static/relationalPooling/RP_GNN_example.png)
