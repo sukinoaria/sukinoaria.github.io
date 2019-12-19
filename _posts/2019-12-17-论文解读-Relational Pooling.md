@@ -1,4 +1,5 @@
 ---
+
 layout:     post
 title:      论文解读 - Relational Pooling
 subtitle:   论文解读 - Relational Pooling for Graph Representations
@@ -12,6 +13,20 @@ tags:
     - Graph Classification
 typora-root-url: ..\
 ---
+```html
+<head>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            inlineMath: [['$','$']]
+            }
+        });
+    </script>
+</head>
+```
+
 ## 1 简介
 
 本文着眼于对Weisfeiler-Lehman算法(WL Test)和WL-GNN模型的分析，针对于WL测试以及WL-GNN所不能解决的环形跳跃连接图(circulant skip link graph)进行研究，并提出了一种基于相对池化的方法，有助于GNN学习到结点之间的相对关系，该方法可以较好地融入到较为通用的神经网络模型中(如CNN、RNN等)，使得WL-GNN具有更强大的表征能力。
