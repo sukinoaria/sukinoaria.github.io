@@ -14,7 +14,7 @@ tags:
 typora-root-url: ..\
 ---
 <head>
-    <script src="http://mathjax.josephjctang.com/MathJax.js?config=TeX-MML-AM_HTMLorMML" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML" type="text/javascript"></script>
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {
