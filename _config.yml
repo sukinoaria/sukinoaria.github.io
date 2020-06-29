@@ -1,13 +1,13 @@
 # Site settings
-title: CYY's Machine Learning Lab
-SEOTitle: CYY的机器学习博客 | CYY's Machine Learning Lab
+title: lunarche's ML Blog
+SEOTitle: lunarche的个人博客 | lunarche's Blog
 header-img: img/post-bg-coffee.jpeg
 email: chenyu3yu3@gmail.com
 description: "NULL"
-keyword: "CYY, CYY Blog, CYY的博客, yu3yu3, Machine Learning"
-url: "http://yu3yu3.github.io"          # your host, for absolute URL
+keyword: "lunarche's Blog, lunarche的博客, Machine Learning"
+url: "http://lunarche.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
-github_repo: "https://github.com/yu3yu3/yu3yu3.github.io.git" # you code repository
+github_repo: "https://github.com/lunarche/lunarche.github.io.git" # you code repository
 
 # Sidebar settings
 sidebar: false                           # whether or not using Sidebar.
@@ -20,7 +20,7 @@ sidebar-avatar: /img/avatar.jpg      # use absolute URL, seeing it's used in bot
 RSS: false
 # weibo_username:     qiubaiying
 #zhihu_username:     qiubaiying
-github_username:    yu3yu3
+github_username:    lunarche
 #facebook_username:  baiying.qiu.7
 #jianshu_username:   e71990ada2fd
 #twitter_username:   qiubaiying
@@ -60,9 +60,9 @@ gitalk:
   enable: false    #是否开启Gitalk评论
   clientID: a8b8b8af4c766b518dc7                            #生成的clientID
   clientSecret: 34d553bbdd8bf6114938a183a9a7e4e1971bdf3d    #生成的clientSecret
-  repo: yu3yu3.github.io    #仓库名称
-  owner: yu3yu3    #github用户名
-  admin: yu3yu3
+  repo: lunarche.github.io    #仓库名称
+  owner: lunarche    #github用户名
+  admin: lunarche
   distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
 

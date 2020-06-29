@@ -4,7 +4,7 @@ layout:     post
 title:      论文解读 - Relational Pooling
 subtitle:   论文解读 - Relational Pooling for Graph Representations
 date:       2019-12-17
-author:     chenyu3yu3
+author:     lunarche
 header-img: img/post-bg-coffee.jpeg
 catalog: true
 tags:

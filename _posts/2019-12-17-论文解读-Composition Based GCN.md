@@ -4,7 +4,7 @@ layout:     post
 title:      论文解读 - Composition Based GCN
 subtitle:   论文解读 - Composition Based Multi Relational Graph Convolutional Networks
 date:       2020-04-22
-author:     chenyu3yu3
+author:     lunarche
 header-img: img/post-bg-coffee.jpeg
 catalog: true
 tags:
